@@ -16,44 +16,45 @@ async function getWeather(apiURL){
     const response=await fetch(apiURL);
     var data=await response.json();
 
-    let {main:{temp,humidity},name,wind:{speed},weather:{main}}=data;
+    let {main:{temp,humidity},name,wind:{speed},weather:{0:{main}}}=data;
     document.querySelector(".temp").innerText=`${temp}°C`;
     document.querySelector(".city").innerText=`${name.charAt(0).toUpperCase()+ name.slice(1)}`;
     document.querySelector(".wind").innerText=`${speed} km/h`
     document.querySelector(".humidity").innerText=`${humidity}%`
+    console.log(main);
 
     let img = document.querySelector(".weather-icon");
 
-// let weatherCondition = main.toLowerCase();
+let weatherCondition = main.toLowerCase();
 
-// switch (weatherCondition) {
-//     case "clear":
-//         img.src = "assets/clear.png";
-//         break;
-//     case "clouds":
-//         img.src = "assets/cloudy.png";
-//         break;
-//     case "drizzle":
-//         img.src = "assets/drizzle.png";
-//         break;
-//     case "rain":
-//         img.src = "assets/rain.png";
-//         break;  
-//     case "snow":
-//         img.src = "assets/snow.png";
-//         break;
-//     case "humidity":
-//         img.src = "assets/humidity.png";
-//         break;
-//     case "mist":
-//         img.src = "assets/mist.png";
-//         break;
-//     default:
-//         img.src = "assets/default.png"; // Or any fallback image
-//         break;
-// }
+switch (weatherCondition) {
+    case "clear":
+        img.src = "assets/clear.png";
+        break;
+    case "clouds":
+        img.src = "assets/clouds.png";
+        break;
+    case "drizzle":
+        img.src = "assets/drizzle.png";
+        break;
+    case "rain":
+        img.src = "assets/rain.png";
+        break;  
+    case "snow":
+        img.src = "assets/snow.png";
+        break;
+    case "humidity":
+        img.src = "assets/humidity.png";
+        break;
+    case "mist":
+        img.src = "assets/mist.png";
+        break;
+    default:
+        img.src = "assets/default.png"; // Or any fallback image
+        break;
+}
 
-console.log(data);
+// console.log(data);
 
 }
 
