@@ -22,8 +22,7 @@ This is a responsive weather application built with HTML, CSS, and JavaScript. I
 - Error handling for invalid city names or API issues
 
 ## Demo
-
-
+https://itisaarjan.github.io/weatherapp/
 
 ## Installation
 
